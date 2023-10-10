@@ -1,6 +1,9 @@
 .ldsRoller {
   display: inline-block;
   position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 80px;
   height: 80px;
 }
@@ -12,10 +15,10 @@
   content: " ";
   display: block;
   position: absolute;
-  width: 7px;
-  height: 7px;
+  width: 1em;
+  height: 1em;
   border-radius: 50%;
-  background: #fff;
+  background: var(--secondary);
   margin: -4px 0 0 -4px;
 }
 .ldsRoller div:nth-child(1) {

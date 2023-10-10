@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import s from "./navbar.module.css";
 
-export default function Navbar() {
+export default function Navbar({ togleModal }) {
   return (
     <ul className={s.list}>
       <li className={s.item}>
@@ -17,8 +17,11 @@ export default function Navbar() {
           to="/tasks"
           className={({ isActive }) => (isActive ? s.active : s.inActive)}
         >
-          Tasks
+          All tasks
         </NavLink>
+      </li>
+      <li className={s.item} onClick={togleModal}>
+        Add NEW task
       </li>
       <li className={s.item}>
         <NavLink

@@ -1,5 +1,7 @@
 :root {
   --main: black;
   --red: red;
+  --white: white;
   --secondary: #f60;
+  --secTransparent: rgba(255, 102, 0, 0.381);
 }

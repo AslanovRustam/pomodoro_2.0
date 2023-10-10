@@ -1,42 +1,77 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { useLocalStorage } from "../../helpers/useLocalStorage";
+import Button from "../Button/Button";
 import s from "./timer.module.css";
 
 export default function Timer() {
-  const percentage = 66;
-  const [interv, setInterv] = useState();
-  const [status, setStatus] = useState(0);
+  const [initialtimeForTask] = useLocalStorage("setMinutes", 600);
+  const [timerRunning, setTimerRunning] = useState(false);
+  const [timeRemaining, setTimeRemaining] = useLocalStorage(
+    "remainingMinutes",
+    600
+  );
 
-  const [minutes, setMinutes] = useState(
-    JSON.parse(window.localStorage.getItem("minutes")) ?? 15
-  );
-  const [seconds, setSeconds] = useState(0);
-  const [initialMin] = useState(
-    JSON.parse(window.localStorage.getItem("minutes")) ?? 10
-  );
-  const [initialSec] = useState(0);
+  useEffect(() => {
+    let interval;
+
+    if (timerRunning && timeRemaining > 0) {
+      interval = setInterval(() => {
+        setTimeRemaining((prevTime) => prevTime - 1);
+      }, 1000);
+    }
+
+    if (timeRemaining === 0) {
+      clearInterval(interval);
+      setTimerRunning(false);
+    }
+
+    return () => clearInterval(interval);
+  }, [timeRemaining, timerRunning]);
+
+  const minutes = Math.floor(timeRemaining / 60);
+  const seconds = timeRemaining % 60;
+
+  const formattedTime = `${minutes}m ${
+    seconds < 10 ? `0${seconds}` : seconds
+  }s`;
+  const start = () => {
+    setTimerRunning(!timerRunning);
+  };
+  const reset = () => {
+    setTimerRunning(false);
+    setTimeRemaining(600);
+  };
+  const textStartBtn = timerRunning ? "take a breath" : "start";
   return (
     <div className={s.container}>
       <CircularProgressbar
-        value={minutes}
-        maxValue={initialMin}
-        minValue={initialSec}
-        strokeWidth={10}
+        value={timeRemaining}
+        maxValue={initialtimeForTask}
+        minValue={0}
+        strokeWidth={5}
+        counterClockwise={true}
+        background={true}
+        className={s.circle}
         styles={buildStyles({
           rotation: 1,
           strokeLinecap: "butt",
           pathTransitionDuration: 0.5,
-          pathColor: "#f60",
-
-          //   textSize: "1em",
-          trailColor: `rgba(255, 136, 136)`,
-          backgroundColor: "#3e98c7",
+          pathColor: "#8d8b8a",
+          trailColor: `#f60 `,
         })}
-        text={`${minutes >= 10 ? minutes : "0" + minutes}:${
-          seconds >= 10 ? seconds : "0" + seconds
-        }`}
+        text={formattedTime}
       />
-      ;
+      <div className={s.buttons}>
+        <Button text={textStartBtn} onClick={start} />
+        {timeRemaining !== initialtimeForTask && (
+          <Button
+            text="reset"
+            onClick={reset}
+            disabled={timeRemaining === initialtimeForTask}
+          />
+        )}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,38 @@
+.section {
+  position: relative;
+  height: 100dvh;
+}
+.sidebar {
+  position: absolute;
+  width: 20em;
+  height: 100dvh;
+  background-color: var(--secondary);
+  transition: all 0.3s ease-in-out;
+}
+.hideBtn {
+  position: absolute;
+  top: 1em;
+  right: -3.25em;
+  padding: 0.5em;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border: 0.1em solid transparent;
+  font-size: 1em;
+  text-transform: uppercase;
+  background-color: var(--secondary);
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.position {
+  right: -3.95em;
+}
+.hide {
+  transform: translateX(-100%);
+}
+.hideBtn:hover,
+.hideBtn:focus {
+  background-color: var(--white);
+  color: var(--secondary);
+  border: 0.1em solid var(--secondary);
+}

@@ -1,4 +1,15 @@
 .container {
-  width: 50em;
-  margin: 0 auto;
+  width: 30em;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.circle {
+  fill: rgba(99, 94, 94, 0.332);
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

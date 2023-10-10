@@ -42,8 +42,8 @@ video {
   transition: all 2s ease-in-out;
 }
 .CircularProgressbar-text {
-  fill: var(--secondary);
+  fill: var(--main);
   dominant-baseline: middle;
   text-anchor: middle;
-  font-size: 5em;
+  /* font-size: 1em; */
 }
