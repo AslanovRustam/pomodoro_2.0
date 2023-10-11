@@ -1,13 +1,14 @@
 import { Suspense, useState } from "react";
 import { Outlet } from "react-router-dom";
+import { useData } from "../../helpers/DataContext";
 import Navbar from "../Navbar/Navbar";
 import Loader from "../Loader/Loader";
 import Modal from "../Modal/Modal";
 import s from "./sidebar.module.css";
 
 export default function Sidebar() {
-  const [hideSidebar, setHideSidebar] = useState(false);
   const [showModal, setShowmodal] = useState(false);
+  const { hideSidebar, setHideSidebar } = useData();
 
   const togleModal = () => {
     setShowmodal(!showModal);

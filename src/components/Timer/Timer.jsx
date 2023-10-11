@@ -57,7 +57,7 @@ export default function Timer() {
           rotation: 1,
           strokeLinecap: "butt",
           pathTransitionDuration: 0.5,
-          pathColor: "#8d8b8a",
+          pathColor: "#fdeedf",
           trailColor: `#f60 `,
         })}
         text={formattedTime}

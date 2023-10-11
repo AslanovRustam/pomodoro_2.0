@@ -1,0 +1,76 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  border: 0.1em solid var(--secTransparent);
+  border-radius: 0.5em;
+}
+.name {
+  font-size: 2em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.description {
+  margin: 0.5em 0;
+  font-size: 1.5em;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.button {
+  width: 5em;
+  margin: 0.2em;
+  padding: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0.1em solid var(--secondary);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.button:hover,
+.button:focus {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+.input {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  border: 0.1em solid var(--secondary);
+  cursor: pointer;
+  height: 2.4em;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  width: 5em;
+  overflow: hidden;
+}
+.input:checked::before {
+  content: "\2714";
+  position: relative;
+  color: var(--white);
+  font-size: 1.5em;
+  font-weight: 600;
+  left: 1.1em;
+  top: 0.15em;
+}
+.checked {
+  background-color: var(--secondary);
+}
+/* .input::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: var(--secondary);
+  width: 5em;
+  height: 100%;
+  transform: translateY(-100%);
+  transition: all 0.3s ease-in-out;
+}
+.input:hover:after,
+.input:focus:after {
+  transform: translateY(0);
+} */
