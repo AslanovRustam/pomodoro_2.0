@@ -1,17 +1,38 @@
 .button {
-  margin: 0.5em 2em;
-  padding: 0.2em 0.5em;
-  border: 0.1em solid transparent;
-  font-size: 2em;
-  font-weight: 600;
-  border-radius: 0.5em;
-  background-color: var(--secTransparent);
+  position: relative;
+  /* width: 5em; */
+  /* margin: 0.2em; */
+  margin: 0.2em 0;
+  padding: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: transparent;
+  border: 0.1em solid var(--secondary);
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-  text-transform: uppercase;
+  overflow: hidden;
 }
-.button:hover,
+/* .button:hover,
 .button:focus {
   background-color: var(--secondary);
   color: var(--white);
+} */
+.button::after {
+  content: "click";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--secondary);
+  color: var(--white);
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+}
+.button:hover:after {
+  transform: translateX(0);
 }

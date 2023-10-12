@@ -1,6 +1,7 @@
 import { createPortal } from "react-dom";
 import { useEffect } from "react";
 import s from "./modal.module.css";
+import Form from "../Form/Form";
 
 const modalRoot = document.querySelector("#modal");
 
@@ -14,9 +15,11 @@ export default function Modal({ togleModal, showModal }) {
   return createPortal(
     <div
       className={`${s.modalBackDrop} ${showModal ? s.show : ""}`}
-      onClick={togleModal}
+      // onClick={togleModal}
     >
-      <div className={s.container}>1</div>
+      <div className={s.container}>
+        <Form onClose={togleModal} />
+      </div>
     </div>,
     modalRoot
   );

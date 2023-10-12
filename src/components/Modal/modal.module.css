@@ -26,6 +26,8 @@
   flex-direction: column;
   /* width: 40em; */
   margin: auto;
+  background: var(--white);
+  border: 0.5em solid var(--secondary);
   /* margin-top: 30em; */
   /* background-image: url(../../images/popup_btn_bg.png); */
   background-repeat: no-repeat;

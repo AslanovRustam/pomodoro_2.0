@@ -9,10 +9,19 @@ export default function TaskList({ tasks, setTaskArr }) {
     setTaskArr(updatedTasks);
   };
 
+  const handlDeleteTask = (id) => {
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    setTaskArr(updatedTasks);
+  };
   return (
     <ul className={s.list}>
       {tasks.map((item) => (
-        <Task key={item.id} item={item} onTaskChange={handleTaskChange} />
+        <Task
+          key={item.id}
+          item={item}
+          onTaskChange={handleTaskChange}
+          onTaskDelete={handlDeleteTask}
+        />
       ))}
     </ul>
   );

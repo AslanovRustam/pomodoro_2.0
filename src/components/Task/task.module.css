@@ -10,6 +10,11 @@
   font-size: 2em;
   font-weight: 600;
   text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+.crosed {
+  text-decoration: line-through;
+  color: var(--secTransparent);
 }
 .description {
   margin: 0.5em 0;
@@ -60,17 +65,21 @@
 .checked {
   background-color: var(--secondary);
 }
-/* .input::after {
-  content: "";
-  display: block;
+.input::after {
+  content: "click?";
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
+  top: 0;
   background-color: var(--secondary);
+  color: var(--white);
   width: 5em;
   height: 100%;
-  transform: translateY(-100%);
+  transform: translateX(-100%);
   transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
 }
-.input:hover:after,
-.input:focus:after {
-  transform: translateY(0);
-} */
+.input:hover:after {
+  transform: translateX(0);
+}

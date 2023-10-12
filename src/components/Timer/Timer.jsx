@@ -63,11 +63,12 @@ export default function Timer() {
         text={formattedTime}
       />
       <div className={s.buttons}>
-        <Button text={textStartBtn} onClick={start} />
+        <Button text={textStartBtn} onClick={start} fontSize="2em" />
         {timeRemaining !== initialtimeForTask && (
           <Button
             text="reset"
             onClick={reset}
+            fontSize="2em"
             disabled={timeRemaining === initialtimeForTask}
           />
         )}

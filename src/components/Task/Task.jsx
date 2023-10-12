@@ -1,11 +1,10 @@
-import { useState } from "react";
-import { useLocalStorage } from "../../helpers/useLocalStorage";
 import Button from "../Button/Button";
 import s from "./task.module.css";
 
 export default function Task({
   item: { done, name, description, id },
   onTaskChange,
+  onTaskDelete,
 }) {
   const handleChange = () => {
     onTaskChange(id, !done);
@@ -13,16 +12,12 @@ export default function Task({
   return (
     <li className={s.item}>
       <div className={s.textContainer}>
-        <p className={s.name}>{name}</p>
+        <p className={`${s.name} ${done && s.crosed}`}>{name}</p>
         <p className={s.description}>{description}</p>
       </div>
       <div className={s.buttons}>
-        <button type="button" className={s.button}>
-          delete
-        </button>
-        <button type="button" className={s.button}>
-          edit
-        </button>
+        <Button text="delete" onClick={() => onTaskDelete(id)} width="5em" />
+        <Button text="edit" onClick={() => console.log(id)} width="5em" />
         <input
           type="checkbox"
           className={`${s.input} ${done && s.checked}`}
