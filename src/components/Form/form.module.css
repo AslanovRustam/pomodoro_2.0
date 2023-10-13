@@ -10,13 +10,14 @@
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   align-items: center;
+  position: relative;
 }
 .inputText {
   text-transform: uppercase;
 }
 .input {
   margin: 0 0.5em;
-  padding: 0.2em;
+  padding: 0.4em;
   border: 0.1em solid var(--secTransparent);
   outline: none;
   transition: all 0.3s ease-in-out;
@@ -28,4 +29,12 @@
   display: flex;
   justify-content: space-between;
   gap: 1em;
+}
+.error {
+  position: absolute;
+  font-size: 0.5em;
+  font-weight: 600;
+  color: var(--red);
+  right: 1.3em;
+  bottom: 0.1em;
 }

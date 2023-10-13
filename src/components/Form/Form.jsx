@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { useLocalStorage } from "../../helpers/useLocalStorage";
+import { nanoid } from "nanoid";
+import { useData } from "../../helpers/DataContext";
 import Button from "../Button/Button";
 import s from "./form.module.css";
 
 export default function Form({ onClose }) {
-  const [taskArr, setTaskArr] = useLocalStorage("all_tasks");
+  const { taskArr, setTaskArr, updateableTask } = useData();
+
   const [formData, setFormData] = useState({
-    // id: "",
-    // done: false,
-    name: "",
-    description: "",
+    name: updateableTask.name ? updateableTask.name : "",
+    description: updateableTask.description ? updateableTask.description : "",
   });
   const [showErrors, setShowErrors] = useState({
     name: false,
@@ -24,6 +24,10 @@ export default function Form({ onClose }) {
     setFormData({
       name: "",
       description: "",
+    });
+    setShowErrors({
+      name: false,
+      description: false,
     });
     onClose();
   };
@@ -45,11 +49,25 @@ export default function Form({ onClose }) {
     setShowErrors(newShowErrors);
 
     if (!hasError) {
-      console.log("formData", formData);
+      const newTask = {
+        id: nanoid(),
+        done: false,
+        name: formData.name,
+        description: formData.description,
+      };
+      // const updatedTaskArr = taskArr.map((item) =>
+      //   item.id === updateableTask.id
+      //     ? { ...item, name: formData.name, description: formData.description }
+      //     : newTask
+      // );
+      // setTaskArr(updatedTaskArr);
+
+      setTaskArr([...taskArr, newTask]);
       setFormData({
         name: "",
         description: "",
       });
+      onClose();
     }
   };
   return (
@@ -63,6 +81,9 @@ export default function Form({ onClose }) {
           value={formData.name}
           onChange={handleInputChange}
         />
+        {showErrors.name && (
+          <span className={s.error}>Please fill your task name</span>
+        )}
       </label>
       <label className={s.label}>
         <span className={s.inputText}>description</span>
@@ -73,6 +94,9 @@ export default function Form({ onClose }) {
           value={formData.description}
           onChange={handleInputChange}
         />
+        {showErrors.description && (
+          <span className={s.error}>Please fill your task description</span>
+        )}
       </label>
       <div className={s.buttons}>
         <Button

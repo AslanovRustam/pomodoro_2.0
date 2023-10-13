@@ -12,10 +12,17 @@ export default function Modal({ togleModal, showModal }) {
       document.body.classList.remove(s.overvlow);
     };
   }, []);
+
+  const handleBackdropClick = (e) => {
+    if (e.currentTarget === e.target) {
+      togleModal();
+    }
+  };
+
   return createPortal(
     <div
       className={`${s.modalBackDrop} ${showModal ? s.show : ""}`}
-      // onClick={togleModal}
+      onClick={handleBackdropClick}
     >
       <div className={s.container}>
         <Form onClose={togleModal} />

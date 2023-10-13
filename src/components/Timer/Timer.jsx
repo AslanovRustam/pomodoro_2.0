@@ -27,7 +27,7 @@ export default function Timer() {
     }
 
     return () => clearInterval(interval);
-  }, [timeRemaining, timerRunning]);
+  }, [timeRemaining, timerRunning, setTimeRemaining]);
 
   const minutes = Math.floor(timeRemaining / 60);
   const seconds = timeRemaining % 60;
@@ -65,12 +65,14 @@ export default function Timer() {
       <div className={s.buttons}>
         <Button text={textStartBtn} onClick={start} fontSize="2em" />
         {timeRemaining !== initialtimeForTask && (
-          <Button
-            text="reset"
-            onClick={reset}
-            fontSize="2em"
-            disabled={timeRemaining === initialtimeForTask}
-          />
+          <div className={s.resetBtn}>
+            <Button
+              text="reset"
+              onClick={reset}
+              fontSize="2em"
+              disabled={timeRemaining === initialtimeForTask}
+            />
+          </div>
         )}
       </div>
     </div>

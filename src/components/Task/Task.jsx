@@ -3,11 +3,12 @@ import s from "./task.module.css";
 
 export default function Task({
   item: { done, name, description, id },
-  onTaskChange,
+  onTaskDone,
   onTaskDelete,
+  onTaskUpdate,
 }) {
   const handleChange = () => {
-    onTaskChange(id, !done);
+    onTaskDone(id, !done);
   };
   return (
     <li className={s.item}>
@@ -17,7 +18,11 @@ export default function Task({
       </div>
       <div className={s.buttons}>
         <Button text="delete" onClick={() => onTaskDelete(id)} width="5em" />
-        <Button text="edit" onClick={() => console.log(id)} width="5em" />
+        <Button
+          text="edit"
+          onClick={() => onTaskUpdate({ done, name, description, id })}
+          width="5em"
+        />
         <input
           type="checkbox"
           className={`${s.input} ${done && s.checked}`}
