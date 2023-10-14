@@ -7,7 +7,13 @@ import Modal from "../Modal/Modal";
 import s from "./sidebar.module.css";
 
 export default function Sidebar() {
-  const { hideSidebar, setHideSidebar, showModal, setShowmodal } = useData();
+  const {
+    hideSidebar,
+    setHideSidebar,
+    showModal,
+    setShowmodal,
+    setUpdatebleTask,
+  } = useData();
 
   const togleModal = () => {
     setShowmodal(!showModal);
@@ -26,7 +32,13 @@ export default function Sidebar() {
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
-      {showModal && <Modal showModal={showModal} togleModal={togleModal} />}
+      {showModal && (
+        <Modal
+          showModal={showModal}
+          togleModal={togleModal}
+          setUpdatebleTask={setUpdatebleTask}
+        />
+      )}
     </section>
   );
 }

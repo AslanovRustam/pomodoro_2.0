@@ -5,7 +5,7 @@ import Form from "../Form/Form";
 
 const modalRoot = document.querySelector("#modal");
 
-export default function Modal({ togleModal, showModal }) {
+export default function Modal({ togleModal, showModal, setUpdatebleTask }) {
   useEffect(() => {
     document.body.classList.add(s.overvlow);
     return () => {
@@ -15,6 +15,12 @@ export default function Modal({ togleModal, showModal }) {
 
   const handleBackdropClick = (e) => {
     if (e.currentTarget === e.target) {
+      setUpdatebleTask({
+        id: "",
+        done: "",
+        name: "",
+        description: "",
+      });
       togleModal();
     }
   };

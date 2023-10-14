@@ -5,7 +5,7 @@ import Button from "../Button/Button";
 import s from "./form.module.css";
 
 export default function Form({ onClose }) {
-  const { taskArr, setTaskArr, updateableTask } = useData();
+  const { taskArr, setTaskArr, updateableTask, setUpdatebleTask } = useData();
 
   const [formData, setFormData] = useState({
     name: updateableTask.name ? updateableTask.name : "",
@@ -28,6 +28,12 @@ export default function Form({ onClose }) {
     setShowErrors({
       name: false,
       description: false,
+    });
+    setUpdatebleTask({
+      id: "",
+      done: "",
+      name: "",
+      description: "",
     });
     onClose();
   };
@@ -55,12 +61,24 @@ export default function Form({ onClose }) {
         name: formData.name,
         description: formData.description,
       };
-      // const updatedTaskArr = taskArr.map((item) =>
-      //   item.id === updateableTask.id
-      //     ? { ...item, name: formData.name, description: formData.description }
-      //     : newTask
-      // );
-      // setTaskArr(updatedTaskArr);
+      if (updateableTask.id) {
+        const updatedTaskArr = taskArr.map((item) =>
+          item.id === updateableTask.id
+            ? {
+                ...item,
+                name: formData.name,
+                description: formData.description,
+              }
+            : item
+        );
+        setTaskArr(updatedTaskArr);
+        setFormData({
+          name: "",
+          description: "",
+        });
+        onClose();
+        return;
+      }
 
       setTaskArr([...taskArr, newTask]);
       setFormData({

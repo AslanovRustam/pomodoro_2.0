@@ -1,7 +1,9 @@
 .item {
-  display: flex;
+  /* display: flex; */
+  display: grid;
+  grid-template-columns: 1fr 0.1fr;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding: 0.5em 1em;
   border: 0.1em solid var(--secTransparent);
   border-radius: 0.5em;
@@ -66,7 +68,7 @@
   background-color: var(--secondary);
 }
 .input::after {
-  content: "click?";
+  content: "done?";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,4 +84,12 @@
 }
 .input:hover:after {
   transform: translateX(0);
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5em;
+}
+.navlink {
+  display: inherit;
 }

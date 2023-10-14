@@ -1,8 +1,5 @@
 .button {
   position: relative;
-  /* width: 5em; */
-  /* margin: 0.2em; */
-  margin: 0.2em 0;
   padding: 0.2em;
   text-transform: uppercase;
   font-weight: 500;
@@ -12,11 +9,7 @@
   cursor: pointer;
   overflow: hidden;
 }
-/* .button:hover,
-.button:focus {
-  background-color: var(--secondary);
-  color: var(--white);
-} */
+
 .button::after {
   content: "click";
   display: flex;

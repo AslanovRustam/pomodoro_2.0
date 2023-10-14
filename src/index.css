@@ -17,6 +17,7 @@ code {
 }
 html {
   font-size: 0.833vw;
+  /* overflow: hidden; */
 }
 * {
   margin: 0;

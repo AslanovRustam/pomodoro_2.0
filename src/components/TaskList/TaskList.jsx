@@ -26,11 +26,6 @@ export default function TaskList({
       name: updatedTask.name,
       description: updatedTask.description,
     });
-    // const updatedTasks = tasks.map((task) =>
-    //   task.id === updatedTask.id ? updatedTask : task
-    // );
-    // setTaskArr(updatedTasks);
-    console.log(updatedTask);
   };
   return (
     <ul className={s.list}>

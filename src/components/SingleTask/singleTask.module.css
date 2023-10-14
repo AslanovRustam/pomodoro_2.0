@@ -1,0 +1,97 @@
+.textContainer {
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  align-items: center;
+}
+.buttons {
+  position: relative;
+  display: flex;
+  gap: 1em;
+}
+.inputContainer {
+  position: relative;
+  width: 50%;
+}
+.input {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  width: 100%;
+  border: 0.1em solid var(--secondary);
+  cursor: pointer;
+  height: 2.4em;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+.input:checked::before {
+  content: "\2714";
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  color: var(--white);
+  font-size: 1.5em;
+  font-weight: 600;
+  left: 15em;
+  top: 0.15em;
+}
+.checked {
+  background-color: var(--secondary);
+}
+.input::after {
+  content: "click";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  background-color: var(--secondary);
+  color: var(--white);
+  width: 100%;
+  height: 100%;
+  font-weight: 600;
+  transform: translateY(-90%);
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+  z-index: 1;
+}
+.input:hover:after {
+  transform: translateY(0);
+}
+.placeholder {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0.6em;
+  font-weight: 600;
+  pointer-events: none;
+  text-transform: uppercase;
+  z-index: -1;
+}
+.name {
+  font-size: 2em;
+  padding: 0.5em 0;
+  margin-right: 0.5em;
+  border-right: 0.1em solid var(--secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 300px;
+}
+.crosed {
+  text-decoration: line-through;
+  color: var(--secTransparent);
+}
+.description {
+  font-size: 1.5em;
+}
+.name,
+.description {
+  /* word-wrap: normal; */
+}
+.timer {
+  margin-top: 25em;
+}
