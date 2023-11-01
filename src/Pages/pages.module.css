@@ -1,7 +1,4 @@
 .container {
-  margin: 25em;
+  margin: 25em 25em 0;
   position: relative;
-}
-.hide {
-  margin-left: 40em;
 }

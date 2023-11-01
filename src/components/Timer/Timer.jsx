@@ -7,10 +7,7 @@ import s from "./timer.module.css";
 export default function Timer() {
   const [initialtimeForTask] = useLocalStorage("setMinutes", 600);
   const [timerRunning, setTimerRunning] = useState(false);
-  const [timeRemaining, setTimeRemaining] = useLocalStorage(
-    "remainingMinutes",
-    600
-  );
+  const [timeRemaining, setTimeRemaining] = useState(initialtimeForTask ?? 600);
 
   useEffect(() => {
     let interval;

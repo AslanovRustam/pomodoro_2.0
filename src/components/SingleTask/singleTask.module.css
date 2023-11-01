@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 0.3fr 1fr;
   align-items: center;
+  margin-bottom: 2em;
 }
 .buttons {
   position: relative;
@@ -94,4 +95,19 @@
 }
 .timer {
   margin-top: 25em;
+}
+.navlink {
+  color: var(--main);
+  border: 0.1em solid var(--secondary);
+  text-align: center;
+  clip-path: polygon(100% 0%, 100% 51%, 100% 100%, 0 100%, 0% 50%, 0 0);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.navlink:hover,
+.navlink:focus {
+  color: var(--white);
+  background-color: var(--secondary);
+  clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+  scale: 1.2;
 }

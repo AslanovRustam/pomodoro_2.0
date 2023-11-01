@@ -1,13 +1,11 @@
-import { useData } from "../helpers/DataContext";
 import Container from "../components/Container/Container";
-import s from "./pages.module.css";
 import Timer from "../components/Timer/Timer";
+import s from "./pages.module.css";
 
 export default function Home() {
-  const { hideSidebar } = useData();
   return (
     <Container>
-      <div className={`${s.container} ${hideSidebar && s.hide}`}>
+      <div className={s.container}>
         <Timer />
       </div>
     </Container>

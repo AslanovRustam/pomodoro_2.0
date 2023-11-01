@@ -3,21 +3,15 @@ import { useLocalStorage } from "./useLocalStorage";
 
 const initTask = [
   {
-    id: 1,
+    id: "1",
     done: false,
     name: "initial task",
     description: "start your journey",
   },
   {
-    id: 2,
+    id: "2",
     done: false,
     name: "Second task",
-    description: "end your journey",
-  },
-  {
-    id: 3,
-    done: false,
-    name: "3 task",
     description: "end your journey",
   },
 ];
