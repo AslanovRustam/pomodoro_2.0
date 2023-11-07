@@ -3,6 +3,7 @@ import { useData } from "../../helpers/DataContext";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import Button from "../Button/Button";
 import s from "./timer.module.css";
+import Break from "../Break/Break";
 
 export default function Timer() {
   const { timerSettings } = useData();
@@ -73,6 +74,7 @@ export default function Timer() {
           </div>
         )}
       </div>
+      <Break />
     </div>
   );
 }

@@ -21,7 +21,7 @@ export const Input = ({ name, type }) => {
     <label className={s.label}>
       <p className={s.name}>
         {name} &nbsp;
-        <span>in min</span>
+        <span>{timerSettings[type] / 60}min</span>
       </p>
       <input
         type="number"
@@ -31,7 +31,12 @@ export const Input = ({ name, type }) => {
         // value={time}
         onChange={(e) => setTime(e.target.value)}
       />
-      <Button text="set" width="100%" type="submit" onClick={handleSubmit} />
+      <Button
+        text={`set ${name}`}
+        width="100%"
+        type="submit"
+        onClick={handleSubmit}
+      />
     </label>
   );
 };
