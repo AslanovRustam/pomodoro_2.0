@@ -5,6 +5,7 @@ import Navbar from "../Navbar/Navbar";
 import Loader from "../Loader/Loader";
 import Modal from "../Modal/Modal";
 import s from "./sidebar.module.css";
+import { Toaster } from "react-hot-toast";
 
 export default function Sidebar() {
   const {
@@ -39,6 +40,7 @@ export default function Sidebar() {
           setUpdatebleTask={setUpdatebleTask}
         />
       )}
+      <Toaster position="top-right" reverseOrder={false} />;
     </section>
   );
 }

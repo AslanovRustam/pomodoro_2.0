@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
+import { useData } from "../../helpers/DataContext";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import { useLocalStorage } from "../../helpers/useLocalStorage";
 import Button from "../Button/Button";
 import s from "./timer.module.css";
 
 export default function Timer() {
-  const [initialtimeForTask] = useLocalStorage("setMinutes", 600);
+  const { timerSettings } = useData();
+  const [initialtimeForTask] = useState(timerSettings.work);
   const [timerRunning, setTimerRunning] = useState(false);
-  const [timeRemaining, setTimeRemaining] = useState(initialtimeForTask ?? 600);
+  const [timeRemaining, setTimeRemaining] = useState(timerSettings.work);
 
   useEffect(() => {
     let interval;
@@ -37,7 +38,7 @@ export default function Timer() {
   };
   const reset = () => {
     setTimerRunning(false);
-    setTimeRemaining(600);
+    setTimeRemaining(timerSettings.work);
   };
   const textStartBtn = timerRunning ? "take a breath" : "start";
   return (

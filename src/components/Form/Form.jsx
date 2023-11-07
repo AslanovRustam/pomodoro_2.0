@@ -76,7 +76,7 @@ export default function Form({ onClose }) {
           name: "",
           description: "",
         });
-        onClose();
+        handleClose();
         return;
       }
 
@@ -85,7 +85,7 @@ export default function Form({ onClose }) {
         name: "",
         description: "",
       });
-      onClose();
+      handleClose();
     }
   };
   return (

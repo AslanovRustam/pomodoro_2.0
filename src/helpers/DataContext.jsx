@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 const initTask = [
@@ -23,9 +23,17 @@ export const useData = () => {
 };
 
 export const DataProvider = ({ children }) => {
-  const [hideSidebar, setHideSidebar] = useState(false);
+  const [hideSidebar, setHideSidebar] = useState(
+    JSON.parse(window.localStorage.getItem("hideSidebar")) ?? false
+  );
   const [showModal, setShowmodal] = useState(false);
   const [taskArr, setTaskArr] = useLocalStorage("all_tasks", initTask);
+  const [timerSettings, setTimerSettings] = useState(
+    JSON.parse(window.localStorage.getItem("timer")) ?? {
+      work: 600,
+      rest: 120,
+    }
+  );
   const [updateableTask, setUpdatebleTask] = useState({
     id: "",
     done: "",
@@ -34,15 +42,11 @@ export const DataProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    const storedValue = window.localStorage.getItem("hideSidebar");
-    if (storedValue !== null) {
-      setHideSidebar(JSON.parse(storedValue));
-    }
-  }, []);
-
-  useEffect(() => {
     window.localStorage.setItem("hideSidebar", JSON.stringify(hideSidebar));
   }, [hideSidebar]);
+  useEffect(() => {
+    window.localStorage.setItem("timer", JSON.stringify(timerSettings));
+  }, [timerSettings]);
 
   return (
     <DataContext.Provider
@@ -55,6 +59,8 @@ export const DataProvider = ({ children }) => {
         setShowmodal,
         updateableTask,
         setUpdatebleTask,
+        timerSettings,
+        setTimerSettings,
       }}
     >
       {children}

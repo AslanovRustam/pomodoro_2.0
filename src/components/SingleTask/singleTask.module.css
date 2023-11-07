@@ -101,13 +101,12 @@
   border: 0.1em solid var(--secondary);
   text-align: center;
   clip-path: polygon(100% 0%, 100% 51%, 100% 100%, 0 100%, 0% 50%, 0 0);
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
   cursor: pointer;
 }
 .navlink:hover,
 .navlink:focus {
   color: var(--white);
   background-color: var(--secondary);
-  clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
-  scale: 1.2;
+  clip-path: polygon(100% 0%, 86% 51%, 100% 100%, 15% 100%, 0% 50%, 15% 1%);
 }
