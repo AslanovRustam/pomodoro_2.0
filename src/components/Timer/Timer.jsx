@@ -9,8 +9,11 @@ export default function Timer() {
   const { timerSettings } = useData();
   const [initialtimeForTask] = useState(timerSettings.work);
   const [timerRunning, setTimerRunning] = useState(false);
+  const [breakRunning, setBreakRunning] = useState(false);
   const [timeRemaining, setTimeRemaining] = useState(timerSettings.work);
-
+  const [breakTimeRemaining, setBreakTimeRemaining] = useState(
+    timerSettings.rest
+  );
   useEffect(() => {
     let interval;
 
@@ -37,9 +40,14 @@ export default function Timer() {
   const start = () => {
     setTimerRunning(!timerRunning);
   };
+  const pause = () => {
+    setBreakRunning(!breakRunning);
+    setTimerRunning(!timerRunning);
+  };
   const reset = () => {
     setTimerRunning(false);
     setTimeRemaining(timerSettings.work);
+    setBreakTimeRemaining(timerSettings.rest);
   };
   const textStartBtn = timerRunning ? "take a breath" : "start";
   return (
@@ -62,7 +70,12 @@ export default function Timer() {
         text={formattedTime}
       />
       <div className={s.buttons}>
-        <Button text={textStartBtn} onClick={start} fontSize="2em" />
+        <Button
+          text={textStartBtn}
+          onClick={timeRemaining !== initialtimeForTask ? pause : start}
+          fontSize="2em"
+        />
+
         {timeRemaining !== initialtimeForTask && (
           <div className={s.resetBtn}>
             <Button
@@ -74,7 +87,16 @@ export default function Timer() {
           </div>
         )}
       </div>
-      <Break />
+      <div className={s.break}>
+        {timeRemaining !== initialtimeForTask && breakRunning && (
+          <Break
+            breakRunning={breakRunning}
+            setBreakRunning={setBreakRunning}
+            breakTimeRemaining={breakTimeRemaining}
+            setBreakTimeRemaining={setBreakTimeRemaining}
+          />
+        )}
+      </div>
     </div>
   );
 }
