@@ -1,7 +1,6 @@
 import { Suspense, useRef, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-
 import { useData } from "../../helpers/DataContext";
 import Navbar from "../Navbar/Navbar";
 import Loader from "../Loader/Loader";

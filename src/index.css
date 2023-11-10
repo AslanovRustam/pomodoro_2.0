@@ -9,6 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--main);
+  transition: all 0.3s ease-in-out;
 }
 
 code {

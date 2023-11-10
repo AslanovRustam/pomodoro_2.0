@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 import { useData } from "../../helpers/DataContext";
 import Button from "../Button/Button";
 import s from "./form.module.css";
+import toast from "react-hot-toast";
 
 export default function Form({ onClose }) {
   const { taskArr, setTaskArr, updateableTask, setUpdatebleTask } = useData();
@@ -86,6 +87,9 @@ export default function Form({ onClose }) {
         description: "",
       });
       handleClose();
+      toast.success(
+        `Great, your new task ${formData.name.toUpperCase()} is added`
+      );
     }
   };
   return (

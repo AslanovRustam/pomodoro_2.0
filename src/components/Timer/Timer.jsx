@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useData } from "../../helpers/DataContext";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import Button from "../Button/Button";
 import s from "./timer.module.css";
 import Break from "../Break/Break";
+import finish from "../../assets/alarm.mp3";
+import btnClick from "../../assets/press.wav";
 
 export default function Timer() {
   const { timerSettings } = useData();
@@ -14,6 +16,17 @@ export default function Timer() {
   const [breakTimeRemaining, setBreakTimeRemaining] = useState(
     timerSettings.rest
   );
+  const audioClickRef = useRef(null);
+  const audioFinishRef = useRef(new Audio(finish));
+
+  useEffect(() => {
+    if (breakRunning) {
+      document.body.classList.add(s.breakTime);
+      return;
+    }
+    document.body.classList.remove(s.breakTime);
+  }, [breakRunning]);
+
   useEffect(() => {
     let interval;
 
@@ -26,6 +39,8 @@ export default function Timer() {
     if (timeRemaining === 0) {
       clearInterval(interval);
       setTimerRunning(false);
+      const audio = audioFinishRef.current;
+      audio.play();
     }
 
     return () => clearInterval(interval);
@@ -37,17 +52,25 @@ export default function Timer() {
   const formattedTime = `${minutes}m ${
     seconds < 10 ? `0${seconds}` : seconds
   }s`;
+  const onBtnClickAudio = () => {
+    const audio = audioClickRef.current;
+    audio.play();
+  };
   const start = () => {
     setTimerRunning(!timerRunning);
+    onBtnClickAudio();
   };
   const pause = () => {
     setBreakRunning(!breakRunning);
     setTimerRunning(!timerRunning);
+    onBtnClickAudio();
   };
   const reset = () => {
     setTimerRunning(false);
+    setBreakRunning(false);
     setTimeRemaining(timerSettings.work);
     setBreakTimeRemaining(timerSettings.rest);
+    onBtnClickAudio();
   };
   const textStartBtn = timerRunning ? "take a breath" : "start";
   return (
@@ -70,6 +93,8 @@ export default function Timer() {
         text={formattedTime}
       />
       <div className={s.buttons}>
+        <audio ref={audioClickRef} src={btnClick} preload="auto" />
+
         <Button
           text={textStartBtn}
           onClick={timeRemaining !== initialtimeForTask ? pause : start}

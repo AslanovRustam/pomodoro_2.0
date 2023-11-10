@@ -27,3 +27,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.breakTime {
+  background-color: var(--secTransparent);
+}
