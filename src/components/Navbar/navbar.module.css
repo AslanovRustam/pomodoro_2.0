@@ -6,7 +6,10 @@
 }
 
 .active {
-  color: var(--secondary);
+  color: var(--white);
+}
+.active .text {
+  border-bottom: 0.1em solid var(--white);
 }
 .item {
   position: relative;
@@ -15,24 +18,30 @@
   font-size: 2em;
   color: var(--white);
   transition: all 0.3s ease-in-out;
+  overflow: hidden;
 }
-.item a {
-  color: inherit;
+.inActive {
+  color: var(--white);
+  border-bottom: 0.1em solid transparent;
 }
 .item::after {
-  content: "";
+  content: attr(data-name);
   display: block;
   position: absolute;
-  width: 0;
-  height: 0.1em;
-  background-color: var(--red);
   transition: all 0.3s ease-in-out;
+  pointer-events: none;
+  transform: translateY(0);
 }
-.item:hover,
-.item:focus {
-  /* scale: 0.9; */
-  transform: translateX(0.5em);
+.text {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  border-bottom: 0.1em solid transparent;
+}
+.item:hover .text,
+.item:focus .text {
+  transform: translateY(-200%);
 }
 .item:hover::after {
   width: 100%;
+  transform: translateY(-100%);
 }

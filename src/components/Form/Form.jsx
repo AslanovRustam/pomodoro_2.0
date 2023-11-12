@@ -37,6 +37,7 @@ export default function Form({ onClose }) {
       description: "",
     });
     onClose();
+    toast.error(`No tasks added!`);
   };
 
   const handleFormSubmit = (evt) => {

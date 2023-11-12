@@ -89,6 +89,7 @@ export default function Timer() {
           pathTransitionDuration: 0.5,
           pathColor: "#fdeedf",
           trailColor: `#f60 `,
+          textColor: "white",
         })}
         text={formattedTime}
       />
@@ -122,6 +123,7 @@ export default function Timer() {
           />
         )}
       </div>
+      <div className={s.bubble}></div>
     </div>
   );
 }
