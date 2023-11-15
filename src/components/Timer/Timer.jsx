@@ -73,6 +73,7 @@ export default function Timer() {
     onBtnClickAudio();
   };
   const textStartBtn = timerRunning ? "take a breath" : "start";
+  const btnDisabled = breakTimeRemaining === 0;
   return (
     <div className={s.container}>
       <CircularProgressbar
@@ -100,6 +101,7 @@ export default function Timer() {
           text={textStartBtn}
           onClick={timeRemaining !== initialtimeForTask ? pause : start}
           fontSize="2em"
+          disabled={btnDisabled}
         />
 
         {timeRemaining !== initialtimeForTask && (
@@ -120,6 +122,7 @@ export default function Timer() {
             setBreakRunning={setBreakRunning}
             breakTimeRemaining={breakTimeRemaining}
             setBreakTimeRemaining={setBreakTimeRemaining}
+            startMainTimer={start}
           />
         )}
       </div>

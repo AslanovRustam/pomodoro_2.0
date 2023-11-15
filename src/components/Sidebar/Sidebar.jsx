@@ -24,6 +24,10 @@ export default function Sidebar() {
     setShowmodal(!showModal);
   };
 
+  const togleSideBar = () => {
+    setHideSidebar(!hideSidebar);
+  };
+
   const audioRef = useRef(new Audio(sound));
 
   const toggleAudio = () => {
@@ -40,10 +44,10 @@ export default function Sidebar() {
   return (
     <section className={s.section}>
       <div className={`${s.sidebar} ${hideSidebar && s.hide}`}>
-        <Navbar togleModal={togleModal} />
+        <Navbar togleModal={togleModal} togleSideBar={togleSideBar} />
         <div
           className={`${s.hideBtn} ${hideSidebar && s.position}`}
-          onClick={() => setHideSidebar(!hideSidebar)}
+          onClick={togleSideBar}
         >
           {hideSidebar ? "show" : "hide"}
         </div>

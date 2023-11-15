@@ -6,6 +6,7 @@ export default function Break({
   setBreakRunning,
   breakTimeRemaining,
   setBreakTimeRemaining,
+  startMainTimer,
 }) {
   useEffect(() => {
     let interval;
@@ -19,6 +20,7 @@ export default function Break({
     if (breakTimeRemaining === 0) {
       clearInterval(interval);
       setBreakRunning(false);
+      startMainTimer();
     }
 
     return () => clearInterval(interval);

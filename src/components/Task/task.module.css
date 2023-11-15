@@ -93,3 +93,21 @@
 .navlink {
   display: inherit;
 }
+@media (orientation: portrait) {
+  .item {
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; */
+  }
+  .container {
+    /* display: flex; */
+    /* justify-content: space-between; */
+  }
+  .navlink {
+    width: 10em;
+  }
+  .buttons {
+    align-items: unset;
+    flex-direction: unset;
+  }
+}
