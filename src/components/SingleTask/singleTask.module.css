@@ -57,7 +57,8 @@
   text-transform: uppercase;
   z-index: 1;
 }
-.input:hover:after {
+.input:hover:after,
+.input:focus:after {
   transform: translateY(0);
 }
 .placeholder {
@@ -107,4 +108,27 @@
   color: var(--white);
   background-color: var(--secondary);
   clip-path: polygon(100% 0%, 86% 51%, 100% 100%, 15% 100%, 0% 50%, 15% 1%);
+}
+@media (orientation: portrait) {
+  .task {
+    font-size: 2em;
+    margin: 2em 1em;
+  }
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .name {
+    border-right: none;
+    border-bottom: 0.1em solid var(--secondary);
+    margin-bottom: 0.5em;
+  }
+  .placeholder {
+    /* font-size: 0.5em; */
+    /* left: 0;
+    transform: translateX(0); */
+    /* width: 100%; */
+    pointer-events: none;
+    z-index: -1;
+  }
 }

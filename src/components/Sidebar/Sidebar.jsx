@@ -65,7 +65,16 @@ export default function Sidebar() {
           setUpdatebleTask={setUpdatebleTask}
         />
       )}
-      <Toaster position="top-right" reverseOrder={false} />;
+      <Toaster
+        position="top-right"
+        reverseOrder={false}
+        toastOptions={{
+          style: {
+            fontSize: "3em",
+          },
+        }}
+      />
+      ;
     </section>
   );
 }

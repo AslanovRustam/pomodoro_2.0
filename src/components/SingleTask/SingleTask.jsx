@@ -47,7 +47,7 @@ export default function SingleTask() {
               checked={currentTask?.done}
               onChange={() => handleProgressTask(id, !currentTask?.done)}
             />
-            <p className={s.placeholder}>did you already done it?</p>
+            <p className={s.placeholder}>check?</p>
           </div>
         </div>
       </div>
