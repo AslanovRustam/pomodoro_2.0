@@ -13,3 +13,9 @@
   gap: 5em;
   margin: 2em 0;
 }
+@media (orientation: portrait) {
+  .container {
+    font-size: 2em;
+    padding: 2em;
+  }
+}
