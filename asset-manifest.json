@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/pomodoro_2.0/static/css/main.0bd640c8.css",
+    "main.js": "/pomodoro_2.0/static/js/main.7597635d.js",
+    "static/css/518.ab5a4492.chunk.css": "/pomodoro_2.0/static/css/518.ab5a4492.chunk.css",
+    "static/js/518.85b462ed.chunk.js": "/pomodoro_2.0/static/js/518.85b462ed.chunk.js",
+    "static/css/19.baa738f8.chunk.css": "/pomodoro_2.0/static/css/19.baa738f8.chunk.css",
+    "static/js/19.fad5b8cc.chunk.js": "/pomodoro_2.0/static/js/19.fad5b8cc.chunk.js",
+    "static/css/6.579c1fed.chunk.css": "/pomodoro_2.0/static/css/6.579c1fed.chunk.css",
+    "static/js/6.cb6f75c1.chunk.js": "/pomodoro_2.0/static/js/6.cb6f75c1.chunk.js",
+    "static/css/888.4a34033d.chunk.css": "/pomodoro_2.0/static/css/888.4a34033d.chunk.css",
+    "static/js/888.f4aed2d4.chunk.js": "/pomodoro_2.0/static/js/888.f4aed2d4.chunk.js",
+    "static/media/music.mp3": "/pomodoro_2.0/static/media/music.ea88eaaa57aaef360f59.mp3",
+    "static/media/alarm.mp3": "/pomodoro_2.0/static/media/alarm.74bd5184cadd842ffd65.mp3",
+    "static/media/press.wav": "/pomodoro_2.0/static/media/press.54e993d220b5fd6b999a.wav",
+    "static/media/play.svg": "/pomodoro_2.0/static/media/play.03a5a4ab31da9e95d996aa6b02ef5932.svg",
+    "index.html": "/pomodoro_2.0/index.html",
+    "main.0bd640c8.css.map": "/pomodoro_2.0/static/css/main.0bd640c8.css.map",
+    "main.7597635d.js.map": "/pomodoro_2.0/static/js/main.7597635d.js.map",
+    "518.ab5a4492.chunk.css.map": "/pomodoro_2.0/static/css/518.ab5a4492.chunk.css.map",
+    "518.85b462ed.chunk.js.map": "/pomodoro_2.0/static/js/518.85b462ed.chunk.js.map",
+    "19.baa738f8.chunk.css.map": "/pomodoro_2.0/static/css/19.baa738f8.chunk.css.map",
+    "19.fad5b8cc.chunk.js.map": "/pomodoro_2.0/static/js/19.fad5b8cc.chunk.js.map",
+    "6.579c1fed.chunk.css.map": "/pomodoro_2.0/static/css/6.579c1fed.chunk.css.map",
+    "6.cb6f75c1.chunk.js.map": "/pomodoro_2.0/static/js/6.cb6f75c1.chunk.js.map",
+    "888.4a34033d.chunk.css.map": "/pomodoro_2.0/static/css/888.4a34033d.chunk.css.map",
+    "888.f4aed2d4.chunk.js.map": "/pomodoro_2.0/static/js/888.f4aed2d4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0bd640c8.css",
+    "static/js/main.7597635d.js"
+  ]
+}
