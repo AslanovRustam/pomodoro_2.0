@@ -1,9 +1,7 @@
 .item {
-  /* display: flex; */
   display: grid;
   grid-template-columns: 1fr 0.1fr;
   align-items: center;
-  /* justify-content: space-between; */
   padding: 0.5em 1em;
   border: 0.1em solid var(--secTransparent);
   border-radius: 0.5em;
@@ -97,12 +95,8 @@
   .item {
     display: flex;
     flex-direction: column;
-    /* width: 100%; */
   }
-  .container {
-    /* display: flex; */
-    /* justify-content: space-between; */
-  }
+
   .navlink {
     width: 10em;
   }

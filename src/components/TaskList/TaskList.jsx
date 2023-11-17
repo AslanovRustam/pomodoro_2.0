@@ -1,6 +1,7 @@
 import Task from "../Task/Task";
-import s from "./taskList.module.css";
 import toast from "react-hot-toast";
+import s from "./taskList.module.css";
+
 export default function TaskList({
   tasks,
   setTaskArr,

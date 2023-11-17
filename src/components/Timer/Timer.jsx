@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { useData } from "../../helpers/DataContext";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import Button from "../Button/Button";
-import s from "./timer.module.css";
 import Break from "../Break/Break";
 import finish from "../../assets/alarm.mp3";
 import btnClick from "../../assets/press.wav";
+import s from "./timer.module.css";
 
 export default function Timer() {
   const { timerSettings } = useData();

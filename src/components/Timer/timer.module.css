@@ -31,13 +31,8 @@
   background-color: var(--secTransparent);
 }
 .bubble {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
   position: absolute;
   animation: morph 12s ease-in-out infinite;
-  /* border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; */
   background: var(--secondary);
   width: 20em;
   height: 20em;

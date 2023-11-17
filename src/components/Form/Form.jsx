@@ -2,8 +2,8 @@ import { useState } from "react";
 import { nanoid } from "nanoid";
 import { useData } from "../../helpers/DataContext";
 import Button from "../Button/Button";
-import s from "./form.module.css";
 import toast from "react-hot-toast";
+import s from "./form.module.css";
 
 export default function Form({ onClose }) {
   const { taskArr, setTaskArr, updateableTask, setUpdatebleTask } = useData();
@@ -37,7 +37,6 @@ export default function Form({ onClose }) {
       description: "",
     });
     onClose();
-    toast.error(`No tasks added!`);
   };
 
   const handleFormSubmit = (evt) => {
@@ -79,6 +78,7 @@ export default function Form({ onClose }) {
           description: "",
         });
         handleClose();
+        toast.success(`Great job!`);
         return;
       }
 

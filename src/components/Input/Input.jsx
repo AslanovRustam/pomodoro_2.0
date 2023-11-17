@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Button from "../Button/Button";
-import s from "./input.module.css";
 import { useData } from "../../helpers/DataContext";
+import Button from "../Button/Button";
 import toast from "react-hot-toast";
+import s from "./input.module.css";
 export const Input = ({ name, type }) => {
   const { timerSettings, setTimerSettings } = useData();
 
